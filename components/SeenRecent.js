@@ -1,15 +1,22 @@
 import React from "react";
-import { View, Text, StyleSheet, Image } from "react-native";
+import { View, Text, StyleSheet, Image, TouchableOpacity } from "react-native";
 import { MaterialCommunityIcons, MaterialIcons } from "@expo/vector-icons";
 
-export default function SeenRecent() {
+export default function SeenRecent(props) {
+  let { navigator } = props;
+
   return (
     <View style={styles.container}>
       <View style={styles.header_container}>
         <Text style={styles.header_text}>Visto recientemente</Text>
       </View>
 
-      <View style={styles.show_product_container}>
+      <TouchableOpacity
+        style={styles.show_product_container}
+        onPress={(props) => {
+          props.navigation.navigate("Play");
+        }}
+      >
         <View>
           <Image
             style={styles.product_image}
@@ -68,7 +75,7 @@ export default function SeenRecent() {
             </Text>
           </View>
         </View>
-      </View>
+      </TouchableOpacity>
 
       <View style={styles.footer_container}>
         <View>

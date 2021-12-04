@@ -9,7 +9,7 @@ import StatusShipping from "../components/StatusShipping";
 import { LinearGradient } from "expo-linear-gradient";
 import SearchBarCartAndLocationClient from "../components/SearchBarCartAndLocationClient";
 
-export default function InicioScreen() {
+export default function InicioScreen(props) {
   return (
     <View>
       <View style={{ backgroundColor: "#fee501" }}>

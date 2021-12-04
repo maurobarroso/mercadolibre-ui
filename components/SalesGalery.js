@@ -2,11 +2,13 @@ import React from "react";
 
 import { FlatList, Image, Text, View, StyleSheet } from "react-native";
 
+import Carousel from "react-native-snap-carousel";
+
 export default function SalesGalery() {
   let arrayImagenes = [
+    "https://i.imgur.com/0VsTLgH.jpg",
     "https://i.imgur.com/VX3fHd3.png",
-    "https://i.imgur.com/VX3fHd3.png",
-    "https://i.imgur.com/VX3fHd3.png",
+    "https://i.imgur.com/kvl7vbs.jpg",
   ];
 
   const Sales = ({ imageUrl }) => {
@@ -15,7 +17,7 @@ export default function SalesGalery() {
         source={{ uri: imageUrl }}
         style={{
           flexGrow: 1,
-          width: 409,
+          width: 400,
           height: 200,
           alignItems: "center",
           marginHorizontal: 10,
@@ -34,11 +36,14 @@ export default function SalesGalery() {
 
   return (
     <View style={styles.gallery_container}>
-      <FlatList
+      <Carousel
+        ref={(c) => {
+          this._carousel = c;
+        }}
         data={arrayImagenes}
         renderItem={({ item }) => <Sales imageUrl={item} />}
-        horizontal={true}
-        showsHorizontalScrollIndicator={false}
+        sliderWidth={425}
+        itemWidth={420}
       />
     </View>
   );
